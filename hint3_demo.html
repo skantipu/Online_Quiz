@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="local_style_sheet.css">
+  
+  </head>
+  <body>
+	 <br>
+    <div class="container" style="text-align:center;border:outset;border-color: lavender">
+      <div class="row">
+        <div class="col-sm-5 col-sm-offset-3"><br>
+          <span id="heading">Online Quiz</span>
+			 <span style="font-size: x-large; color: orange"><b>(DEMO)</b></span>
+        </div>
+        <div class="col-sm-2 col-sm-offset-2"><br><br>
+          <h5 id="signout_border">
+            <span title="Sign Out" style="color: blue;"> Sign Out   
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </span>
+          </h5>
+        </div>
+      </div>
+		<div class="row" id="demo_text_panel" style="margin-left: 25px; margin-right: 25px; margin-top: 25px; height: 20%; background-color:green; color:white; border-radius: 3px;">
+		  <div class="col-sm-12">
+			 <span id="demo_text"></span>
+			 <br>
+			 <button type="button" class="btn btn-default" id="btn_demo_ok" style="margin-bottom: 5px; margin-top: 5px;">OK, Got It</button>
+		  </div>
+		</div>
+		<div class="row question-content" style="margin: 3px;margin-top: 2%">
+		  <div class="col-sm-12">
+			 <span class='question-font'>Question 1</span><br><br>
+			 <span class='question-desc-font'>Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?</span>
+		 
+			 <div class="radio">
+				<label>
+				  <input type="radio" class="radio-font" name="radios" disabled>
+					 <span class="radio-font">7</span>
+				</label>
+			 </div>
+			 <div class="radio">
+				<label>
+				  <input type="radio" class="radio-font" name="radios" disabled>
+					 <span class="radio-font">10</span>
+				</label>
+			 </div>
+			 <div class="radio">
+				<label>
+				  <input type="radio" class="radio-font" name="radios" disabled>
+					 <span class="radio-font">12</span>
+				</label>
+			 </div>
+			 <div class="radio">
+				<label>
+				  <input type="radio" class="radio-font" name="radios" disabled>
+					 <span class="radio-font">13</span>
+				</label>
+			 </div>
+		  </div>
+		</div>
+		
+
+		<div class="row" id="hint_content_border" style="margin: 3px;margin-top:3px;">
+		  <div class="col-sm-6 hint-content-1" style="opacity: 1;">
+			 <div id="btn1DIV">
+				<button type="button" id="btn1" class="btn btn-warning" disabled>Show Hint 1</button>
+			 </div>
+		  </div>
+		  <div class="col-sm-6 hint-content-2">
+			 <div id="btn2DIV">
+				<button type="button" id="btn2" class="btn btn-warning" disabled>Show Hint 2</button>
+			 </div>
+		  </div>
+		</div>
+		<br>
+		<!--Showing count of total number of hints -->
+		<div class="row" style="text-align:right;">
+		  <div class="col-sm-4 col-sm-offset-8">
+			 <span id="hints_left_count">
+				Number of hints left : <span style="width: 30px; color: red; font-weight: bold; font-size: large;border: none;">3</span>
+			 </span>
+		  </div>
+		</div>
+        
+		<br>
+		<div class="row">
+		  <div class="col-sm-12">
+			 <button class="btn btn-primary" id="btn_next" name="next" disabled>Next</button>
+		  </div>
+		</div>
+		<br>
+    </div>
+	 <div class="container" style="text-align: center"><br>
+		<div class="row">
+		  <div class="col-sm-12">
+			 <button class="btn btn-primary animated pulse" id="btn_demo">Start Demo</button>
+		  </div>
+		</div>
+		<div class="row">
+		  <form action="hint3.php">
+			 <div class="col-sm-12">
+				<button class="btn btn-primary" id="btn_quiz">Start Quiz</button>
+			 </div>
+		  </form>
+		</div>
+	 </div>
+	 <br>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	 <script>
+		$(document).ready(function(){
+		  $('#demo_text_panel').hide();
+		  $('#btn_quiz').hide();
+		  $('#btn_demo').click(function(){
+			 $('#btn_demo').hide();
+			 $('#demo_text_panel').fadeIn(1000);
+			 var hours = new Date().getHours();
+			 var msg;
+			 if (hours < 12)
+				msg = "Good Morning! ";
+			 else if (hours < 18)
+				msg = "Good Afternoon! ";
+			 else
+				msg = "Good Evening! ";
+			 $('#demo_text').text(msg+"In our study on the use of hints, you will anonymously complete 5 logic questions.");
+			// $('#btn1').removeAttr('disabled');
+			 $('#btn_demo_ok').click(function(){
+				$('#demo_text').text("Each question has 2 hints available that you may use. Hint 2 button gets enabled after using Hint 1."); 
+				$("#hint_content_border").attr('class','row selected');
+				$('#btn_demo_ok').click(function(){
+				  $("#hint_content_border").attr('class','row');
+				  $('#demo_text').text("You have a fixed number of hints to use in the quiz. Once you use all of them, you are not allowed to use any more hints.");
+				  $("#hints_left_count").attr('class','selected');
+				  $('#btn_demo_ok').click(function(){
+					 $("#hints_left_count").removeAttr('class');
+					 $('#demo_text').text("Please complete the quiz in one uninterrupted session, since we are logging time for analysis purposes. Do not press \"Back or Refresh\" during the quiz.");
+					 $('#btn_demo_ok').click(function(){
+						$('#demo_text').text("Please do not consult any resources other than the provided hints.");
+						$('#btn_demo_ok').click(function(){
+						  $('#demo_text').text("If you need to quit taking the quiz in the middle, please Sign Out");
+						  $("#signout_border").attr('class','selected');
+						  $('#btn_demo_ok').click(function(){
+							 $("#signout_border").removeAttr('class');
+							 $('#demo_text').text("Thanks in advance for your time! You may now proceed to quiz by clicking on \"Start Quiz\"!");
+							 $('#btn_demo_ok').attr('disabled','true');
+							 $('#btn_quiz').fadeIn("slow");
+							 $('html, body').animate({
+								scrollTop: $("#btn_quiz").offset().top
+							 }, 1000);
+							 $('#btn_quiz').attr("class","btn btn-primary animated pulse");
+						  });
+						});
+					 });
+				  });
+				});
+			 });
+		  });
+		});
+	 </script>
+  </body>
+</html>

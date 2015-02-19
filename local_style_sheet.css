@@ -1,0 +1,119 @@
+   .question-content{
+     border-radius: 20px;
+     background-color:lavender;
+     margin-top: 10%;
+   }
+   .hint-content-1{
+     background-color: lavender;
+   }
+   .hint-content-2{
+     background-color: lavender;
+     opacity: 0.4;
+     border-left: medium solid white;
+   }
+   
+   #hint1,#hint2,#btn1DIV,#btn2DIV{
+     padding: 5px;
+   }
+   
+  .selected {
+    -webkit-animation: pulse-border 2s infinite;
+    animation: pulse-border 2s infinite;
+  }
+
+  @-webkit-keyframes pulse-border {
+    from, to { box-shadow: 0 0 0 0 orange;}
+    50% { box-shadow: 0 0 0 8px orange; }
+  }
+   
+   
+  .animated { 
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count:infinite;
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+  }
+
+  @-webkit-keyframes pulse { 
+      0% { -webkit-transform: scale(1); } 
+      50% { -webkit-transform: scale(1.1); } 
+      100% { -webkit-transform: scale(1); } 
+  }
+      
+  @keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); } 
+  } 
+  .pulse { 
+    -webkit-animation-name: pulse; 
+    animation-name: pulse; 
+  }
+ 
+   
+   
+   
+   
+   
+   /* Responsive font using media queries - respond dynamically to chanign media types (different screen sizes and mediums)*/
+  @media (max-width: 768px) { /*if screen size is less than 768px (xs in bootstrap) apply the following*/
+    #heading{
+      font: small-caps bolder 20px Arial;   /*font: font-style font-variant font-weight font-size/line-height --- small-caps is font-variant */
+      font-style:initial;
+    }
+    .question-font{
+      font: bold 14px Arial;
+      font-variant: initial;
+    }
+    .question-desc-font,.radio-font{
+      font: bolder 12px Arial
+    }
+    .radio-font1{
+      font: bolder 14px Arial
+    }
+    #hint1,#hint2{
+      font: 11px Arial
+    }
+  }
+   
+   @media (min-width: 769px) { /*if screen size is less than 768px (xs in bootstrap) apply the following*/
+     #heading{
+       font: small-caps bold 40px Arial;
+       font-style:initial;
+     }
+     .question-font{
+       font: bold 18px Arial;
+       font-variant: initial;
+     }
+     .question-desc-font,.radio-font{
+       font: bolder 16px Arial
+     }
+      .radio-font1{
+      font: bolder 16px Arial
+    }
+     #hint1,#hint2{
+       font: 13px Arial
+     }
+   }
+   
+   @media (min-width: 992px) { /*if screen size is less than 768px (xs in bootstrap) apply the following*/
+     #heading{
+       font: small-caps bold 50px Arial;
+       font-style:initial;
+     }
+     .question-font{
+       font: bold 25px Arial;
+       font-variant: initial;
+     }
+     .question-desc-font,.radio-font{
+       font: bolder 20px Arial
+     }
+      .radio-font1{
+      font: bolder 18px Arial
+    }
+     #hint1,#hint2{
+       font: 16px Arial
+     }
+   }
