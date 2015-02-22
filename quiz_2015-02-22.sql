@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.38)
 # Database: quiz
-# Generation Time: 2015-02-19 06:49:01 +0000
+# Generation Time: 2015-02-22 20:51:24 +0000
 # ************************************************************
 
 
@@ -60,18 +60,20 @@ LOCK TABLES `hint_tbl` WRITE;
 
 INSERT INTO `hint_tbl` (`h_id`, `h_desc`)
 VALUES
-	(23,'Note that primitive int keyword starts with a lowercase i. Also, virtual is a keyword in C++.'),
-	(24,'constant is not a keyword'),
-	(25,'int array can\'t be initialized with string literals.'),
-	(26,'Curly braces have to be used for array initialization, and also, for 2-D array initialization, initial values for both dimensions have to be provided.'),
-	(27,'Class types are not keywords and Float is a class. Also, although \"String\" is a class type in Java, \"string\" is not a keyword.'),
-	(28,'unsigned is a keyword in C/C++, not in java'),
-	(29,'null can\'t be enclosed in single quotes'),
-	(30,'options 3 and 4 look fishy!'),
-	(31,'Each number is one half of the previous number'),
-	(32,'Half of 1/4 is 1/8'),
-	(33,'This is a simple alternating addition and subtraction series.'),
-	(34,'In the first pattern, 3 is added; in the second, 2 is subtracted.');
+	(35,'Time duration from noon to 5 is 5 hours'),
+	(36,'Angle traced by hour hand in 12 hours is 360 degrees'),
+	(37,'There are two series here'),
+	(38,'2, 10, 18, 26, ... (increase by 8)'),
+	(39,'There are two series here'),
+	(40,'2, 6, 10, ... (adding 4)'),
+	(41,'what is 6 * 6 * 6?'),
+	(42,'7 = (2 * 2 * 2) - 1'),
+	(43,'Think in terms of cubes'),
+	(44,'What is (1 * 1 * 1) + (2 * 2 * 2)?'),
+	(45,'Think in terms of squares'),
+	(46,'What is a palindrome?'),
+	(47,'1 is not a prime number'),
+	(48,'There are 9 prime numbers between 1 and 27');
 
 /*!40000 ALTER TABLE `hint_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -99,26 +101,6 @@ CREATE TABLE `metrics_tbl` (
   CONSTRAINT `metrics_tbl_ibfk_3` FOREIGN KEY (`hint_design_id`) REFERENCES `hint_design_tbl` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `metrics_tbl` WRITE;
-/*!40000 ALTER TABLE `metrics_tbl` DISABLE KEYS */;
-
-INSERT INTO `metrics_tbl` (`s_id`, `q_id`, `hint_design_id`, `q_score`, `time_q_sec`, `time_hint1_sec`, `time_hint2_sec`, `q_no`)
-VALUES
-	(21,50,1,1,10.51,0,0,3),
-	(21,51,1,1,9.919,0,0,2),
-	(21,56,1,1,6.318,3.819,0,1),
-	(21,57,1,1,2.525,0,0,4),
-	(22,50,2,1,21.778,5.764,8.449,1),
-	(22,52,2,0,6.32,0,0,2),
-	(22,55,2,0,2.345,0,0,4),
-	(22,57,2,1,2.216,0,0,3),
-	(23,51,3,1,4.952,0,0,3),
-	(23,55,3,0,5.988,4.026,4.974,1),
-	(23,56,3,0,5.098,1.225,0,2),
-	(23,57,3,1,2.134,0,0,4);
-
-/*!40000 ALTER TABLE `metrics_tbl` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table option_tbl
@@ -137,30 +119,34 @@ LOCK TABLES `option_tbl` WRITE;
 
 INSERT INTO `option_tbl` (`o_id`, `o_desc`)
 VALUES
-	(119,'class, if, void, long, Int, continue'),
-	(120,'goto, instanceof, native, finally, default, throws'),
-	(121,'try, virtual, throw, final, volatile, transient'),
-	(122,'strictfp, constant, super, implements, do'),
-	(123,'int [ ] myList = {\"1\", \"2\", \"3\"};'),
-	(124,'int [ ] myList = (5, 8, 2);'),
-	(125,'int myList [ ] [ ] = {4,9,7,0};'),
-	(126,'int myList [ ] = {4, 3, 7};'),
-	(127,'interface'),
-	(128,'string'),
-	(129,'Float'),
-	(130,'unsigned'),
-	(135,'String s1 = null;'),
-	(136,'String s2 = \'null\';'),
-	(137,'String s3 = (String) \'abc\';'),
-	(138,'String s4 = (String) \'\\ufeed\';'),
-	(139,'(1/3)'),
-	(140,'(1/8)'),
-	(141,'(2/8)'),
-	(142,'(2/15)'),
-	(143,'7'),
-	(144,'10'),
-	(145,'12'),
-	(146,'13');
+	(147,'145'),
+	(148,'150'),
+	(149,'155'),
+	(150,'160'),
+	(151,'52'),
+	(152,'56'),
+	(153,'64'),
+	(154,'48'),
+	(155,'18'),
+	(156,'0'),
+	(157,'-6'),
+	(158,'3'),
+	(159,'58'),
+	(160,'62'),
+	(161,'63'),
+	(162,'72'),
+	(163,'90'),
+	(164,'93'),
+	(165,'89'),
+	(166,'91'),
+	(167,'91'),
+	(168,'51'),
+	(169,'18'),
+	(170,'0'),
+	(171,'0.67'),
+	(172,'0.33'),
+	(173,'0.75'),
+	(174,'0.5');
 
 /*!40000 ALTER TABLE `option_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -185,12 +171,13 @@ LOCK TABLES `question_answer_tbl` WRITE;
 
 INSERT INTO `question_answer_tbl` (`q_id`, `a_id`)
 VALUES
-	(50,120),
-	(51,126),
-	(52,127),
-	(55,135),
-	(56,140),
-	(57,144);
+	(58,148),
+	(59,151),
+	(60,157),
+	(61,161),
+	(62,166),
+	(63,169),
+	(64,172);
 
 /*!40000 ALTER TABLE `question_answer_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -215,18 +202,20 @@ LOCK TABLES `question_hint_tbl` WRITE;
 
 INSERT INTO `question_hint_tbl` (`q_id`, `h_id`)
 VALUES
-	(50,23),
-	(50,24),
-	(51,25),
-	(51,26),
-	(52,27),
-	(52,28),
-	(55,29),
-	(55,30),
-	(56,31),
-	(56,32),
-	(57,33),
-	(57,34);
+	(58,35),
+	(58,36),
+	(59,37),
+	(59,38),
+	(60,39),
+	(60,40),
+	(61,41),
+	(61,42),
+	(62,43),
+	(62,44),
+	(63,45),
+	(63,46),
+	(64,47),
+	(64,48);
 
 /*!40000 ALTER TABLE `question_hint_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -251,30 +240,34 @@ LOCK TABLES `question_option_tbl` WRITE;
 
 INSERT INTO `question_option_tbl` (`q_id`, `o_id`)
 VALUES
-	(50,119),
-	(50,120),
-	(50,121),
-	(50,122),
-	(51,123),
-	(51,124),
-	(51,125),
-	(51,126),
-	(52,127),
-	(52,128),
-	(52,129),
-	(52,130),
-	(55,135),
-	(55,136),
-	(55,137),
-	(55,138),
-	(56,139),
-	(56,140),
-	(56,141),
-	(56,142),
-	(57,143),
-	(57,144),
-	(57,145),
-	(57,146);
+	(58,147),
+	(58,148),
+	(58,149),
+	(58,150),
+	(59,151),
+	(59,152),
+	(59,153),
+	(59,154),
+	(60,155),
+	(60,156),
+	(60,157),
+	(60,158),
+	(61,159),
+	(61,160),
+	(61,161),
+	(61,162),
+	(62,163),
+	(62,164),
+	(62,165),
+	(62,166),
+	(63,167),
+	(63,168),
+	(63,169),
+	(63,170),
+	(64,171),
+	(64,172),
+	(64,173),
+	(64,174);
 
 /*!40000 ALTER TABLE `question_option_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -296,12 +289,13 @@ LOCK TABLES `question_tbl` WRITE;
 
 INSERT INTO `question_tbl` (`q_id`, `q_desc`)
 VALUES
-	(50,'Which one of these lists contains only Java programming language keywords?'),
-	(51,'Which will legally declare, construct, and initialize an array in Java?'),
-	(52,'Which is a valid keyword in java?'),
-	(55,'Which is a valid declaration <br>of a String in Java?'),
-	(56,'Look at this series: 2, 1, (1/2), (1/4), ... What number should come next?'),
-	(57,'Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?');
+	(58,'A clock is started at noon. By 5, the hour hand has turned through ___  degrees?'),
+	(59,'Find the missing number in the series: 2, 7, 10, 22, 18, 37, 26, ___ ?'),
+	(60,'Find the missing number in the series: 2, 3, 6, 0, 10, -3, 14, ___ ?'),
+	(61,'Find the missing number in the series: 7, 26, ___, 124, 215 ?'),
+	(62,'Find the missing number in the series: 9, 35, ___, 189, 341, 559 ?'),
+	(63,'Find the missing number in the series: 61, 52, 63, 94, 46, ___, 001 ?'),
+	(64,'What is the probability of picking a prime number between 1 and 27 inclusive?');
 
 /*!40000 ALTER TABLE `question_tbl` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -326,17 +320,6 @@ CREATE TABLE `session_tbl` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `session_tbl` WRITE;
-/*!40000 ALTER TABLE `session_tbl` DISABLE KEYS */;
-
-INSERT INTO `session_tbl` (`id`, `session`, `ip_remote_address`, `ip_proxy_address`, `variant`, `session_date`, `gender`, `age_group`, `personality_type`, `education`)
-VALUES
-	(21,'905fd03a68c5c585f5dabc3af2f65e75','::1','',1,'2015-02-17 15:29:17','dnd','22 to 34','extroverted','masters'),
-	(22,'8274394479f61d1dfc45189a2eb7827f','::1','',2,'2015-02-17 15:30:13','','','',''),
-	(23,'0559228043445a4ba49a800d1c4760fd','::1','',3,'2015-02-17 15:31:06','male','35 to 44','somewhere in between','doctorate');
-
-/*!40000 ALTER TABLE `session_tbl` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
