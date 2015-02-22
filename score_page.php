@@ -15,18 +15,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12" style="text-align:center;"><br><br>
-					<h1>You have reached the end of the quiz. <br> We very much appreciate your time in attempting our quiz.<br> Thank you!!!</h1>
-					<br><h2>If you would like to see your score, click below. </h2>
-					<button class="btn btn-info" id="scorebutton">Show Score</button>
+					<span class="score-font">Thank you for taking our quiz! <br> We very much appreciate it!<br>
+					<br>If you would like to see your score, click below. </span><br><br>
+					<button class="btn btn-info" id="scorebutton">Show Score</button><br>
 					<div id="score">
-						<h3>Your score is <?php echo (!isset($_SESSION['score'])?0:$_SESSION['score'])?> point(s) out of <?php echo $quantity;?>.</h3>
+						<span id="score-font-sub">Your score is <?php echo (!isset($_SESSION['score'])?0:$_SESSION['score'])?> point(s) out of <?php echo $quantity;?>.</span>
 					</div>
 					<?php
+						//regenrate id and destroy current session
 						session_regenerate_id();
 						session_destroy();	
 					?>				
-				<!--	<br><br><br><br>
-					<h3>To start the quiz again, click here <a href="index.php">Start Again </a></h3>  -->
 				</div>
 			</div>
 		</div>

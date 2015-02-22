@@ -87,6 +87,14 @@
       font: small-caps bolder 16px Arial;
       color: orange;
     }
+    .score-font{
+      font: bold 18px Arial;
+      font-variant: initial;
+    }
+    #score-font-sub{
+      font: bold 16px Arial;
+      font-variant: initial;
+    }
   }
    
    @media (min-width: 769px) { /*if screen size is more than or equal to 769px (small device tablets), apply the following*/
@@ -116,6 +124,14 @@
          font: small-caps bolder 30px Arial;
          color: orange;
       }
+      .score-font{
+      font: bold 30px Arial;
+      font-variant: initial;
+    }
+     #score-font-sub{
+      font: bold 26px Arial;
+      font-variant: initial;
+    }
    }
    
    @media (min-width: 992px) { /*if screen size is >= 992px (medium device desktops and above) apply the following*/
@@ -145,4 +161,12 @@
        font: small-caps bolder 40px Arial;
        color: orange;
      }
+     .score-font{
+      font: bold 40px Arial;
+      font-variant: initial;
+    }
+     #score-font-sub{
+      font: bold 34px Arial;
+      font-variant: initial;
+    }
    }
