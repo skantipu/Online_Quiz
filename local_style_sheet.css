@@ -57,7 +57,8 @@
    
    
    
-   /* Responsive font using media queries - respond dynamically to chanign media types (different screen sizes and mediums)*/
+   /* Responsive web design using media queries - respond dynamically to changing media types (different screen sizes and mediums)*/
+   
   @media (max-width: 768px) { /*if screen size is less than 768px (xs in bootstrap) apply the following*/
     #heading{
       font: small-caps bolder 20px Arial;   /*font: font-style font-variant font-weight font-size/line-height --- small-caps is font-variant */
@@ -76,29 +77,48 @@
     #hint1,#hint2{
       font: 11px Arial
     }
+    .container-demo{
+      margin: 5px;
+      text-align: center;
+      border: outset;
+      border-color: lavender;
+    }
+	 #heading-sub{
+      font: small-caps bolder 16px Arial;
+      color: orange;
+    }
   }
    
-   @media (min-width: 769px) { /*if screen size is less than 768px (xs in bootstrap) apply the following*/
-     #heading{
-       font: small-caps bold 40px Arial;
-       font-style:initial;
-     }
-     .question-font{
-       font: bold 18px Arial;
-       font-variant: initial;
-     }
-     .question-desc-font,.radio-font{
+   @media (min-width: 769px) { /*if screen size is more than or equal to 769px (small device tablets), apply the following*/
+      #heading{
+        font: small-caps bold 40px Arial;
+        font-style:initial;
+      }
+      .question-font{
+        font: bold 18px Arial;
+        font-variant: initial;
+      }
+      .question-desc-font,.radio-font{
+        font: bolder 16px Arial
+      }
+       .radio-font1{
        font: bolder 16px Arial
      }
-      .radio-font1{
-      font: bolder 16px Arial
-    }
-     #hint1,#hint2{
-       font: 13px Arial
-     }
+      #hint1,#hint2{
+        font: 13px Arial
+      }
+      .container-demo{
+         text-align: center;
+         border: outset;
+         border-color: lavender;
+      }
+      #heading-sub{
+         font: small-caps bolder 30px Arial;
+         color: orange;
+      }
    }
    
-   @media (min-width: 992px) { /*if screen size is less than 768px (xs in bootstrap) apply the following*/
+   @media (min-width: 992px) { /*if screen size is >= 992px (medium device desktops and above) apply the following*/
      #heading{
        font: small-caps bold 50px Arial;
        font-style:initial;
@@ -115,5 +135,14 @@
     }
      #hint1,#hint2{
        font: 16px Arial
+     }
+     .container-demo{
+       text-align: center;
+       border: outset;
+       border-color: lavender;
+     }
+     #heading-sub{
+       font: small-caps bolder 40px Arial;
+       color: orange;
      }
    }
