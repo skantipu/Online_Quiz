@@ -1,8 +1,8 @@
 <?php
-	define('DB_SERVER', 'localhost');
-	define('DB_USER', 'root');
-	define('DB_PASSWORD', 'root');
-	define('DB_NAME', 'quiz');
+	define('DB_SERVER', 'xxxx');
+	define('DB_USER', 'xxxx');
+	define('DB_PASSWORD', 'xxxx');
+	define('DB_NAME', 'xxxx');
 	$quantity=4; //number of questions in the quiz;
 	
 	//HINT DESIGN 3
