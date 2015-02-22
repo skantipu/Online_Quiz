@@ -1,4 +1,5 @@
 <?php
+
 	define('DB_SERVER', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', 'root');
@@ -18,4 +19,6 @@
 	HINT DESIGN 2 - showing hint button after certain time (ex: 5 sec) ($time_hint_disable)
 	HINT DESIGN 3 - showing only certain predertimend number of hints ($hints_global_count)
 	*/
+	
 ?>
+
