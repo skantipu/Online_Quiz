@@ -119,6 +119,9 @@
 		  $('#btn_demo').click(function(){
 			 $('#btn_demo').hide();
 			 $('#demo_text_panel').fadeIn(1000);
+			 $('html, body').animate({
+				scrollTop: $("#signout_border").offset().top
+			 }, 1000);
 			 var hours = new Date().getHours();
 			 var msg;
 			 if (hours < 12)

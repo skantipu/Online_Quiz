@@ -37,7 +37,7 @@
 			 //retrieve answer details for that question and compare with the submitted answer
 			 $result = mysqli_query($con,"SELECT o.o_desc FROM question_answer_tbl qa INNER JOIN option_tbl o ON qa.a_id = o.o_id WHERE qa.q_id = $prev_q_no;");
           $row = mysqli_fetch_array($result);
-		
+			
          //Calculate score of the answered question and update score in a session variable
          if($row['o_desc'] == $_POST['radios'])
          {
