@@ -1,16 +1,31 @@
-<?php
-   session_start();
-	include 'config.php';
-?>
 <!DOCTYPE html>
 <html>
+	<?php
+	  session_start();
+	  include 'config.php';
+	  $con=mysqli_connect(DB_SERVER,DB_USER,DB_PASSWORD,DB_NAME);
+	  if (mysqli_connect_errno()) // Check connection
+	  {
+		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	  }
+	  $sex = mysqli_real_escape_string($con, $_POST['radio1']);
+	  $age = mysqli_real_escape_string($con, $_POST['radio2']);
+	  $personality = mysqli_real_escape_string($con, $_POST['radio3']);
+	  $education = mysqli_real_escape_string($con, $_POST['radio4']);
+	  $id = $_SESSION['s_id'];
+	  $result = mysqli_query($con,"UPDATE session_tbl SET gender='$sex',age_group='$age',personality_type='$personality',education='$education' where id=$id;");
+	  if(! $result )
+	  {
+		  die('Could not update data in metric_tbl. ' . mysql_error());
+	  }
+	  mysqli_close();
+  ?>
   <head>
 	<title>Results</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="local_style_sheet.css">
   </head>
-  
 	<body>
 		<div class="container">
 			<div class="row">
