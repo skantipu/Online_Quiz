@@ -33,8 +33,14 @@
       //Execute below when Next button is pressed
       if(isset($_POST['next']))
       {
-         //Calculate score the answered question and update score in a session variable
-         if($_POST['answer']==$_POST['radios'])
+			 $prev_q_no = $_SESSION['question_array'][$_SESSION['questions_answered']-1]; //submitted question number
+			 
+			 //retrieve answer details for that question and compare with the submitted answer
+			 $result = mysqli_query($con,"SELECT o.o_desc FROM question_answer_tbl qa INNER JOIN option_tbl o ON qa.a_id = o.o_id WHERE qa.q_id = $prev_q_no;");
+          $row = mysqli_fetch_array($result);
+		
+         //Calculate score of the answered question and update score in a session variable
+         if($row['o_desc'] == $_POST['radios'])
          {
             $db_q_score=1;
             if(!isset($_SESSION['score']))
@@ -52,20 +58,19 @@
          }
          
          //Collect form data using PHP superglobal $_POST
-         $db_q_id = $_POST['qt_no'];
          $db_time_q_sec = $_POST['time_question'];
          $db_time_hint1_sec = $_POST['time_hint1'];
          $db_time_hint2_sec = $_POST['time_hint2'];
          $db_s_id = $_SESSION['s_id'];
-         $question_series_number = $_SESSION['questions_answered'];
+         $question_series_number = $_SESSION['questions_answered']; //has the order sequence number of the question (1,2,3 or 4)
       
-         //Insert form data into the metrics_tbl
-         $result = mysqli_query($con,"INSERT INTO metrics_tbl VALUES ($db_s_id, $db_q_id, 1, $db_q_score, '$db_time_q_sec', '$db_time_hint1_sec', '$db_time_hint2_sec', $question_series_number);");
+         //Insert submitted question's metric details into the metrics_tbl
+         $result = mysqli_query($con,"INSERT INTO metrics_tbl VALUES ($db_s_id, $prev_q_no, 1, $db_q_score, '$db_time_q_sec', '$db_time_hint1_sec', '$db_time_hint2_sec', $question_series_number);");
          //Note: single quotes for time fields are important, if not null values will not be accepted
          if(! $result )
          {
             die('Could not update data in metric_tbl. ' . mysql_error());
-         } 
+         }  
         
          //Check if the number of questions shown to the user equals our predetermined $quantity stored in config.php file. If so, redirect to user demographic page
          if($_SESSION['questions_answered']==$quantity)
@@ -201,16 +206,9 @@
             <button class="btn btn-primary" id="btn_next" name="next">Next</button>
           </div>
         </div>
-        <?php
-          $result = mysqli_query($con,"SELECT o.o_desc from question_answer_tbl qa inner join option_tbl o on qa.a_id=o.o_id where qa.q_id=$q_no;");
-          $row = mysqli_fetch_array($result);
-        ?>
-        <input type="hidden" name="answer" value="<?php echo $row['o_desc'];?>">
         <input type="hidden" name="time_question" id="timeid" value="">  <!--recording time for every question -->
         <input type="hidden" name="time_hint1" id="hint1id" value="">
-        <input type="hidden" name="time_hint2" id="hint2id" value="">
-        <input type="hidden" name="qt_no" value="<?php echo $q_no;?>">
-          
+        <input type="hidden" name="time_hint2" id="hint2id" value="">   
       </form>
     </div>
     
