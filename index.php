@@ -28,5 +28,5 @@
 	 $result = mysqli_query($con,"select id from session_tbl where id=LAST_INSERT_ID();");
 	 $row = mysqli_fetch_array($result);
 	 $_SESSION['s_id']=$row['id'];
-	 header('Location: hint'.$variant.'_demo.html');   
+	 header('Location: variant'.$variant.'_demo.html');   
   ?>
