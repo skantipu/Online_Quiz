@@ -3,6 +3,8 @@ In a variety of education settings, personalized feedback greatly enhances the l
 In order to do this, we developed an online, multiple choice quiz with five mathematical logic problems. Problems are randomly picked from a pool of questions stored in the database. Each problem has two, increasingly specific hints available, and hints are made available through one of the different hint design strategies. After running a user study, we evaluated how feedback availability affects the count, frequency, and timing of its use.  
 
 Hint design strategies:
+
+
 "Hints On Demand": variant1.php has code for this hint design type. Here, both the hints are available to the user all the time and it is up to the user to access them anytime. Second hint can be accessed after using the first one.    
 
 "Deferred Hints": variant2.php has code for this hint design type. Here, hints are available when problem solving time exceeds some pre-determined time.   First hint will be thus available after some pre-set time and second hint will be available after some time when user accesses the first hint.    
