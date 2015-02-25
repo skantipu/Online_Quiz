@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	 <title>Online Quiz - Hint Design Types Study</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="local_style_sheet.css">
@@ -222,7 +223,6 @@
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function(){
         var time_start=$.now();

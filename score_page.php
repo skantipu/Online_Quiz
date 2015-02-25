@@ -12,8 +12,10 @@
 	  $age = mysqli_real_escape_string($con, $_POST['radio2']);
 	  $personality = mysqli_real_escape_string($con, $_POST['radio3']);
 	  $education = mysqli_real_escape_string($con, $_POST['radio4']);
+	  $difficulty = mysqli_real_escape_string($con, $_POST['radio5']);
+	  $width = mysqli_real_escape_string($con, $_POST['screen_size']);
 	  $id = $_SESSION['s_id'];
-	  $result = mysqli_query($con,"UPDATE session_tbl SET gender='$sex',age_group='$age',personality_type='$personality',education='$education' where id=$id;");
+	  $result = mysqli_query($con,"UPDATE session_tbl SET gender='$sex',age_group='$age',personality_type='$personality',education='$education', level_of_difficulty='$difficulty', screen_size='$width' where id=$id;");
 	  if(! $result )
 	  {
 		  die('Could not update data in metric_tbl. ' . mysql_error());
@@ -21,7 +23,7 @@
 	  mysqli_close();
   ?>
   <head>
-	<title>Results</title>
+	<title>Online Quiz - Hint Design Types Study - Score Page</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="local_style_sheet.css">

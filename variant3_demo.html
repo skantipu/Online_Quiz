@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	 <title>Online Quiz - Hint Design Types Study - Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="local_style_sheet.css">
@@ -78,7 +79,7 @@
 		<div class="row" style="text-align:right;" title="This is for demo purpose - not clickable">
 		  <div class="col-sm-4 col-sm-offset-8">
 			 <span id="hints_left_count">
-				Number of hints left : <span style="width: 30px; color: red; font-weight: bold; font-size: large;border: none;">5</span>
+				Number of hints left : <span style="width: 30px; color: red; font-weight: bold; font-size: large;border: none;">7</span>
 			 </span>
 		  </div>
 		</div>
@@ -108,7 +109,6 @@
 	 <br>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	 <script>
 		$(document).ready(function(){
 		  $('#demo_text_panel').hide();
@@ -130,7 +130,7 @@
 				msg = "Good Afternoon! ";
 			 else
 				msg = "Good Evening! ";
-			 $('#demo_text').text(msg+"In our study on the use of hints, you will anonymously complete 5 logic questions.");
+			 $('#demo_text').text(msg+"In our study on the use of hints, you will anonymously complete 7 logic questions.");
 			// $('#btn1').removeAttr('disabled');
 			 $('#btn_demo_ok').click(function(){
 				$('#demo_text').text("Each question has 2 hints available that you may use. Hint 2 button gets enabled after using Hint 1."); 

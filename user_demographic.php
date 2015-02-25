@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+   <title>Online Quiz - Hint Design Types Study - User Demographics Page</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="local_style_sheet.css">
@@ -99,7 +100,28 @@
                         <input type="radio" name="radio4" value="dnd">Do not want to disclose
                      </label>
                   </div>
+               </div><br>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <b>What do you feel about level of difficulty of questions? </b><br>
+                     <label class="radio-inline">
+                        <input type="radio" name="radio5" value="veryhard">Very hard
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="radio5" value="hard">Hard
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="radio5" value="medium">Medium
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="radio5" value="easy">Easy
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="radio5" value="dnd">Do not know
+                     </label>
+                  </div>
                </div>
+               <input type="hidden" name="screen_size" id="width" value="">
                <br>
                <div class="row">
                   <div class="col-sm-1 col-sm-offset-4">
@@ -111,6 +133,11 @@
          </div>
       </div>
    </form>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script>
+         //since script is written at the end, it will be executed after doc finishes loading
+         $('#width').val($( window ).width());
+   </script>
   </body>
 </html>
 

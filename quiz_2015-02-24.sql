@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.38)
 # Database: quiz
-# Generation Time: 2015-02-22 20:51:24 +0000
+# Generation Time: 2015-02-25 05:13:58 +0000
 # ************************************************************
 
 
@@ -66,12 +66,12 @@ VALUES
 	(38,'2, 10, 18, 26, ... (increase by 8)'),
 	(39,'There are two series here'),
 	(40,'2, 6, 10, ... (adding 4)'),
-	(41,'what is 6 * 6 * 6?'),
+	(41,'Think in terms of cubes'),
 	(42,'7 = (2 * 2 * 2) - 1'),
 	(43,'Think in terms of cubes'),
 	(44,'What is (1 * 1 * 1) + (2 * 2 * 2)?'),
 	(45,'Think in terms of squares'),
-	(46,'What is a palindrome?'),
+	(46,'What is the reverse of 100?'),
 	(47,'1 is not a prime number'),
 	(48,'There are 9 prime numbers between 1 and 27');
 
@@ -172,7 +172,7 @@ LOCK TABLES `question_answer_tbl` WRITE;
 INSERT INTO `question_answer_tbl` (`q_id`, `a_id`)
 VALUES
 	(58,148),
-	(59,151),
+	(59,152),
 	(60,157),
 	(61,161),
 	(62,166),
@@ -290,7 +290,7 @@ LOCK TABLES `question_tbl` WRITE;
 INSERT INTO `question_tbl` (`q_id`, `q_desc`)
 VALUES
 	(58,'A clock is started at noon. By 5, the hour hand has turned through ___  degrees?'),
-	(59,'Find the missing number in the series: 2, 7, 10, 22, 18, 37, 26, ___ ?'),
+	(59,'Find the missing number in the series: 2, 7, 10, 14, 18, 28, 26, ___?'),
 	(60,'Find the missing number in the series: 2, 3, 6, 0, 10, -3, 14, ___ ?'),
 	(61,'Find the missing number in the series: 7, 26, ___, 124, 215 ?'),
 	(62,'Find the missing number in the series: 9, 35, ___, 189, 341, 559 ?'),
@@ -317,6 +317,8 @@ CREATE TABLE `session_tbl` (
   `age_group` varchar(55) DEFAULT NULL,
   `personality_type` varchar(55) DEFAULT NULL,
   `education` varchar(55) DEFAULT NULL,
+  `level_of_difficulty` varchar(55) DEFAULT NULL,
+  `screen_size` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
