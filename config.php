@@ -5,6 +5,16 @@
 	define('DB_PASSWORD', 'root');
 	define('DB_NAME', 'quiz');
 	
+	//Establish db connection
+	$con=mysqli_connect(DB_SERVER,DB_USER,DB_PASSWORD,DB_NAME);
+   // Check for connection error
+   if (mysqli_connect_errno()) 
+   {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+   }
+	
+	//Initialize global variables
+	
 	$quantity = 7; //number of questions in the quiz;
 	
 	//HINT DESIGN 3
