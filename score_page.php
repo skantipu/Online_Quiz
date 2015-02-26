@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 	<?php
 	  session_start();
 	  include 'config.php';
-	  $con=mysqli_connect(DB_SERVER,DB_USER,DB_PASSWORD,DB_NAME);
-	  if (mysqli_connect_errno()) // Check connection
-	  {
-		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	  }
 	  $sex = mysqli_real_escape_string($con, $_POST['radio1']);
 	  $age = mysqli_real_escape_string($con, $_POST['radio2']);
 	  $personality = mysqli_real_escape_string($con, $_POST['radio3']);
@@ -36,7 +31,7 @@
 					<br>If you would like to see your score, click below. </span><br><br>
 					<button class="btn btn-info" id="scorebutton">Show Score</button><br>
 					<div id="score">
-						<span id="score-font-sub">Your score is <?php echo (!isset($_SESSION['score'])?0:$_SESSION['score'])?> point(s) out of <?php echo $quantity;?>.</span>
+						<span id="score-font-sub">Your score is <?php echo ( !isset($_SESSION['total_score']) ? 0 : $_SESSION['total_score']); ?> point(s) out of <?php echo $quantity;?>.</span>
 					</div>
 					<?php
 						//regenrate id and destroy current session
