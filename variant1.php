@@ -57,7 +57,7 @@
           <?php
             echo "<span class='question-font'>";
             echo "Question ";
-            echo $_SESSION['questions_count']+1;
+            echo $_SESSION['question_count']+1;
             echo "</span>";
             echo "<br><br>";
             echo "<span class='question-desc-font'>";
