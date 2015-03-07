@@ -6,9 +6,9 @@
    $_SESSION['question_count']++;
    $prev_q_no = $_SESSION['question_array'][$_SESSION['question_count']-1]; //submitted question number
    
-   function get_correct_answer()
+   function get_correct_answer($prev_q_no)
    {
-      global $con, $prev_q_no;
+      global $con;
       $result = mysqli_query($con,"SELECT o.o_desc FROM question_answer_tbl qa INNER JOIN option_tbl o ON qa.a_id = o.o_id WHERE qa.q_id = $prev_q_no;");
       if(! $result )
       {
@@ -19,9 +19,8 @@
       return $answer;
    }
    
-   function get_score()
+   function get_score($answer)
    {
-      $answer = get_correct_answer();
       if($answer == $_POST['radios'])
       {
          $score=1;
@@ -69,15 +68,19 @@
       }
    }
    
+   /*
+    * Retrieves the correct answer for the submitted question from the database (passed in as parameter)
+    */
+    $answer = get_correct_answer($prev_q_no);
    
    /*
     * get_score():
-    * Retrieves the correct answer for the submitted question from the database and compares it with the answer of user and
+    * It compares the answer of the participant with the correct answer (passed in as argument) and
     * updates the score for that question accordingly. This score (1/0) will be returned and collected in $score variable
     * as $score will be accessed in log_data(). Local data of the function is destroyed once the function is returned.
     * Also, get_score() maintains a total score session variables to display at the end of the quiz.
     */
-   $score = get_score();
+   $score = get_score($answer);
    
    /*
     * log_data():
